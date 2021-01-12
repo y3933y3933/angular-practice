@@ -46,7 +46,7 @@
         Generator
       </button>
     </div>
-    <div class="field">
+    <div class="field" *ngIf="password">
       <label class="label">Your Password</label>
       <input class="input" [value]="password" />
     </div>
