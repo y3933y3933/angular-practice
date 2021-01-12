@@ -2,3 +2,5 @@
 練習小專案
 1. Password generator
 2. card
+3. typing game
+4. pipes
