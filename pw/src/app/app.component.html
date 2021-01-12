@@ -1,0 +1,54 @@
+<div
+  class="container is-flex is-flex-direction-column is-align-items-center is-justify-content-center"
+>
+  <div class="form">
+    <h1 class="is-size-1 has-text-weight-medium has-text-centered">Password Generator</h1>
+    <div class="field">
+      <label class="label">Length</label>
+      <p class="control has-icons-left">
+        <input
+          class="input"
+          placeholder="Password"
+          (input)="onChangeLength($event.target.value)"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" (change)="onChangeUseLetters()" />
+        Use Letters
+      </label>
+    </div>
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" (change)="onChangeUseNumbers()" />
+        Use Numbers
+      </label>
+    </div>
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" (change)="onChangeUseSymbols()" />
+        Use Symbols
+      </label>
+    </div>
+    <div class="field">
+      <button
+        class="button is-link"
+        (click)="onButtonClick()"
+        style="width: 100%;"
+        [disabled]="
+          !(length && (includeLetters || includeNumbers || includeSymbols))
+        "
+      >
+        Generator
+      </button>
+    </div>
+    <div class="field">
+      <label class="label">Your Password</label>
+      <input class="input" [value]="password" />
+    </div>
+  </div>
+</div>
