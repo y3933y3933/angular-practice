@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <h1 class="title has-text-centered">Typing game</h1>
+  <div (click)="changeStatus()">
+    <button class="is-fullwidth button is-primary">
+      {{ status | uppercase }}
+    </button>
+  </div>
+  <p class="m-3">
+    <span
+      [class]="compare(letter, enteredText[i])"
+      *ngFor="let letter of randomText.split(''); let i = index"
+      >{{ letter }}</span
+    >
+  </p>
+  <div class="field" *ngIf="status === 'pause'">
+    <textarea
+      rows="5"
+      class="textarea is-primary has-fixed-size"
+      [ngModel]="enteredText"
+      (ngModelChange)="onInput($event)"
+      #txtArea
+    ></textarea>
+  </div>
+  <div class="modal" [class]="openModal ? 'is-active':''">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-primary">
+      <p class="is-size-3 has-text-white-ter">
+        Success! <span>spend XXX time</span>
+      </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>
+  </div>
+</div>
