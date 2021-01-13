@@ -5,3 +5,4 @@
 3. typing game
 4. pipes
 5. pages
+6. comps 
