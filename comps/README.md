@@ -1,27 +1,48 @@
 # Comps
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+## 學習
 
-## Development server
+### routing
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### Creating a module
 
-## Code scaffolding
+- `ng new <app name> --routing`
+- `ng g m <module name> --routing`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### module
 
-## Build
+- `declarations`: 使用到ㄉ components、pipes、directives
+- `imports`:使用到ㄉ Module
+- `exports`:給外部使用ㄉ components、pipes、directives
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Adding Routing
 
-## Running unit tests
+- `const routes:Routes = [{path:'',component:Component}]`
+- `<router-outlet>`:秀出 router 畫面
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### RouterLink
 
-## Running end-to-end tests
+- `routerLink = ''`
+- `routerLinkActive=class`:設定 routerLinkActive 時的樣式
+  - ```[routerLinkActiveOptions]="{exact:true}"```:路徑完全符合。
+    example for CollectionsHome(route: localhost:4200/collections/CollectionsHome)
+- `./`:`localhost:4200/collections`
+- `/`:`localhost:4200`
+- `../hi`:`localhost:4200/hi`
+- `Boo`:`localhost:4200/collections/Boo`
+- `./Boo`:`localhost:4200/Boo`
+#### Not Found
+* ```path:'**'```
+* 路徑從上到下匹配，故要
+#### Lazy Loading
+* 在使用到該Module路徑ㄉRouting Module設定
+* ```{path:'',loadChildren:()=>import(module path).then(m=>m.Module);}```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Child Routes
+* ```{path:'',component:'', children:[寫在這裡]}```
+### ng-content
+* 放在子組件內，當父組件內插入值時會對應到子組件的```<ng-content></ng-content>```
+* ```<ng-content select="">```: select內可放css selector，如：```.className```，```[property]```
+### CSS
+* ```:empty```:隱藏內容為空ㄉhtml
+  
