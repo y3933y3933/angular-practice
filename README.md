@@ -6,3 +6,7 @@
 4. pipes
 5. pages
 6. comps 
+7. wsearch
+8. photo
+9. creditcard
+10. emailform
