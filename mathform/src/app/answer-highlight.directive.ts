@@ -7,7 +7,6 @@ import { map,  } from 'rxjs/operators';
 export class AnswerHighlightDirective {
   constructor(private el: ElementRef, private controlName: NgControl) {}
   ngOnInit() {
-    console.log(
       this.controlName.control.parent.valueChanges
         .pipe(
           map(({ a, b, ans }) => Math.abs((a + b - ans) / (a + b))),
@@ -19,6 +18,5 @@ export class AnswerHighlightDirective {
             this.el.nativeElement.classList.remove('close')
           }
         })
-    );
   }
 }
